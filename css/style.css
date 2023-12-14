@@ -1,0 +1,85 @@
+/* Stili Generali */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+:root {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+/* Stili Main Container */
+.main-container {
+    height: 100vh;
+    position: relative;
+}
+
+.sub-topbar {
+    width: 100%;
+    height: 150px;
+    background: #009688;
+}
+
+.sub-background {
+    width: 100%;
+    height: calc(100% - 150px);
+    background: #d8dbd5;
+}
+
+.app-container {
+    width: 80%;
+    height: calc(100vh - 50px);
+    margin: 0 auto;
+    background: lightblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#wrapper-up {
+    height: 100%;
+    background-color: #353e50;
+    display: flex;
+}
+
+#sidebar {
+    min-width: 600px;
+    height: 100%;
+    background-color: #9ca35c;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-sidebar {
+    height: 70px;
+    background-color: #0b7c5a;
+}
+
+#main-content {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#topbar {
+    height: 70px;
+    background-color: #0b7c5a;
+    display: flex;
+    border-left: 2px solid #353e50;
+}
+
+#main-part {
+    height: calc(100% - 140px);
+    overflow-y: auto;
+}
+
+#bottom-bar {
+    height: 70px;
+    background-color: #7c3e0b;
+    display: flex;
+    border-left: 2px solid #353e50;
+}

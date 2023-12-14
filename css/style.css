@@ -11,7 +11,7 @@
     font-size: 14px;
 }
 
-/* Stili Main Container */
+/* Stili Main Parte Sottostante */
 .main-container {
     height: 100vh;
     position: relative;
@@ -26,9 +26,10 @@
 .sub-background {
     width: 100%;
     height: calc(100% - 150px);
-    background: #d8dbd5;
+    background: #b9bbb4;
 }
 
+/* StILI BLOCCO APP */
 .app-container {
     width: 80%;
     height: calc(100vh - 50px);
@@ -46,40 +47,143 @@
     display: flex;
 }
 
+/* STILI SIDEBAR */
 #sidebar {
     min-width: 600px;
     height: 100%;
-    background-color: #9ca35c;
+    background-color: #ffff;
     display: flex;
     flex-direction: column;
 }
 
+/* Stili Header Sidebar */
 .header-sidebar {
-    height: 70px;
-    background-color: #0b7c5a;
+    height: 80px;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
 
+.box-profile {
+    display: flex;
+    align-items: center;
+}
+
+.box-profile img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.box-profile .personal-name {
+    font-size: 17px;
+    margin-left: 10px;
+}
+
+.header-icons {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.header-icons i {
+    color: #8f8f8f;
+    padding: 0 8px;
+}
+
+/* Stili Box PopUp */
+.popup-box {
+    background: #8edafc;
+    display: flex;
+    align-items: center;
+    padding: 18px;  
+}
+
+.icon-popup {
+    background-color: #ffff;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.icon-popup i {
+    font-size: 23px;
+    color: #8edafc;
+}
+
+.text-popup {
+    margin-left: 10px;
+}
+
+.text-popup .title-popup {
+    font-size: 16px;
+}
+
+/* Stili Box Input Search Chat */
+.chat-search-box {
+    display: flex;
+    height: 60px;
+    background: #f3f3f3;
+    padding: 10px;
+}
+
+.chat-search-box .search-button {
+    width: 80px;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+    margin-right: -1px;
+    border-radius: 2px;
+}
+
+.search-button i {
+    font-size: 19px;
+    color: #8f8f8f;
+    margin-top: 2px;
+}
+
+.chat-search-box .search-bar {
+    flex: 1;
+    padding-left: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    font-size: 14px;
+    box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* STILI MAIN CONTENT */
 #main-content {
     flex-grow: 1;
     height: 100%;
     overflow-y: auto;
 }
 
+/* Stili Topbar */
 #topbar {
-    height: 70px;
-    background-color: #0b7c5a;
+    height: 80px;
+    background-color: #eaeaea;
     display: flex;
-    border-left: 2px solid #353e50;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 2px solid #98a2b2;
+    padding: 10px;
+}
+
+.access {
+    margin-left: 10px;
+    color: #494949;
 }
 
 #main-part {
-    height: calc(100% - 140px);
+    height: calc(100% - 150px);
     overflow-y: auto;
+    background-image: url(../img/whatsapp_doodles.jpg);
+    background-size: cover;
+    filter: brightness(70%);
 }
 
 #bottom-bar {
     height: 70px;
-    background-color: #7c3e0b;
+    background-color: #e5ddd5;
     display: flex;
-    border-left: 2px solid #353e50;
+    border-left: 2px solid #98a2b2;
 }

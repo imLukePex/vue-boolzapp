@@ -22,22 +22,68 @@
     <title>Esercizio 35 - Vue Boolzapp</title>
 </head>
 <body>
-    
+    <!-- Contenitore Generico -->
     <div class="main-container">
+        <!-- Topbar e Background sottostante -->
         <div class="sub-topbar"></div>
         <div class="sub-background"></div>
 
+        <!-- Contenitore Schermata App -->
         <div class="app-container">
             <div id="wrapper-up">
+                <!-- Sezione Sidebar (Lista Chat) -->
                 <div id="sidebar">
+                    <!-- Sezione Header Sidebar -->
                     <div class="header-sidebar">
-                        
+                        <div class="box-profile">
+                            <img src="img/avatar_me.jpg" alt="Personal Pic Profile">
+                            <div class="personal-name">Luca</div>
+                        </div>
+
+                        <div class="header-icons">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+
+                    <!-- Sezione PopUp Notifiche Sidebar -->
+                    <div class="popup-box">
+                        <div class="icon-popup">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+
+                        <div class="text-popup">
+                            <div class="title-popup">Ricevi notifiche di nuovi messaggi</div>
+                            <div class="link-popup"><a href="#">Attiva notifiche desktop</a></div>
+                        </div>
+                    </div>
+
+                    <!-- Sezione Input Search Chat -->
+                    <div class="chat-search-box">
+                        <button class="search-button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <input class="search-bar" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </div>
 
+                <!-- Sezione Main Content (Chat Attiva + Input Messaggio) -->
                 <div id="main-content">
                     <div id="topbar">
+                        <div class="box-profile">
+                            <img src="img/avatar_Fred.jpg" alt="Active Profile Pic Chat">
+                            <div class="box contact">
+                                <div class="personal-name">Fred</div>
+                                <div class="access">Ultimo accesso oggi alle 12:00</div>
+                            </div>
+                        </div>
 
+                        <div class="header-icons">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
                     </div>
 
                     <div id="main-part">

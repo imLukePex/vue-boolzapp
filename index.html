@@ -226,14 +226,16 @@
                     </div>
 
                     <div id="main-part">
-                        <div class="row">
-                            <div class="col">
-                                <div class="user-messages">Tutto fatto!</div>
-                            </div>
-                            <div class="col">
-                                <div class="personal-messages">Hai portato a spasso il cane?</div>
-                                <div class="personal-messages">Ricordati di stendere i panni</div>
-                            </div>
+                        <div class="chat outgoing">
+                            <div class="message">Hai portato a spasso il cane?</div>
+                        </div>
+
+                        <div class="chat outgoing">
+                            <div class="message">Ricordati di stendere i panni</div>
+                        </div>
+
+                        <div class="chat incoming">
+                            <div class="message">Tutto fatto!</div>
                         </div>
                     </div>
 
@@ -246,7 +248,8 @@
                         </div>
 
                         <div class="middle-section">
-                            <input class="type-bar" type="text" placeholder="Scrivi un messaggio">
+                            <textarea class="type-area" placeholder="Scrivi un messaggio" required></textarea>
+                            <span id="send-btn"><i class="fa-solid fa-paper-plane"></i></span>
                         </div>
 
                         <div class="right-section">

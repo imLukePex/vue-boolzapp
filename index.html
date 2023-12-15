@@ -28,242 +28,115 @@
         <div class="sub-topbar"></div>
         <div class="sub-background"></div>
 
-        <!-- Contenitore Schermata App -->
-        <div class="app-container">
-            <div id="wrapper-up">
-                <!-- Sezione Sidebar (Lista Chat) -->
-                <div id="sidebar">
-                    <!-- Sezione Header Sidebar -->
-                    <div class="header-sidebar">
-                        <div class="box-profile">
-                            <img src="img/avatar_me.jpg" alt="Personal Pic Profile">
-                            <div class="personal-name">Luca</div>
-                        </div>
-
-                        <div class="header-icons">
-                            <i class="fa-solid fa-circle-notch"></i>
-                            <i class="fa-solid fa-message"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </div>
-                    </div>
-
-                    <!-- Sezione PopUp Notifiche Sidebar -->
-                    <div class="popup-box">
-                        <div class="icon-popup">
-                            <i class="fa-solid fa-bell-slash"></i>
-                        </div>
-
-                        <div class="text-popup">
-                            <div class="title-popup">Ricevi notifiche di nuovi messaggi</div>
-                            <div class="link-popup"><a href="#">Attiva notifiche desktop</a></div>
-                        </div>
-                    </div>
-
-                    <!-- Sezione Input Search Chat -->
-                    <div class="chat-search-box">
-                        <button class="search-button">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <input class="search-bar" type="text" placeholder="Cerca o inizia una nuova chat">
-                    </div>
-
-                    <!-- Sezione Chats -->
-                    <div class="list-chat-box">
-
-                        <!-- Prima Chat -->
-                        <div class="box-chat active">
+        <div id="app">
+            <!-- Contenitore Schermata App -->
+            <div class="app-container">
+                <div id="wrapper-up">
+                    <!-- Sezione Sidebar (Lista Chat) -->
+                    <div id="sidebar">
+                        <!-- Sezione Header Sidebar -->
+                        <div class="header-sidebar">
                             <div class="box-profile">
-                                <img src="img/avatar_Fred.jpg" alt="Fred Pic Chat">
+                                <img src="img/avatar_me.jpg" alt="Personal Pic Profile">
+                                <div class="personal-name">Luca</div>
+                            </div>
+
+                            <div class="header-icons">
+                                <i class="fa-solid fa-circle-notch"></i>
+                                <i class="fa-solid fa-message"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+
+                        <!-- Sezione PopUp Notifiche Sidebar -->
+                        <div class="popup-box">
+                            <div class="icon-popup">
+                                <i class="fa-solid fa-bell-slash"></i>
+                            </div>
+
+                            <div class="text-popup">
+                                <div class="title-popup">Ricevi notifiche di nuovi messaggi</div>
+                                <div class="link-popup"><a href="#">Attiva notifiche desktop</a></div>
+                            </div>
+                        </div>
+
+                        <!-- Sezione Input Search Chat -->
+                        <div class="chat-search-box">
+                            <button class="search-button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <input class="search-bar" type="text" placeholder="Cerca o inizia una nuova chat">
+                        </div>
+
+                        <!-- Sezione Chats -->
+                        <div class="list-chat-box">
+
+                            <!-- Ciclo For Chats -->
+                            <div v-for="(contact, i) in contacts" class="box-chat">
+                                <div class="box-profile">
+                                    <img :src="contact.avatar" alt="Fred Pic Chat">
+                                    <div class="box-contact">
+                                        <div class="personal-name">{{contact.name}}</div>
+                                        <div class="preview">Ultimo messaggio inviato</div>
+                                    </div>
+                                </div>
+
+                                <div class="time-last-message">
+                                    <div class="time">12:00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sezione Main Content (Chat Attiva + Input Messaggio) -->
+                    <div id="main-content">
+                        <div id="topbar">
+                            <div class="box-profile">
+                                <img src="img/avatar_Fred.jpg" alt="Active Profile Pic Chat">
                                 <div class="box-contact">
                                     <div class="personal-name">Fred</div>
-                                    <div class="preview">Ultimo messaggio inviato</div>
+                                    <div class="access">Ultimo accesso oggi alle 12:00</div>
                                 </div>
                             </div>
 
-                            <div class="time-last-message">
-                                <div class="time">12:00</div>
+                            <div class="header-icons">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i class="fa-solid fa-paperclip"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                         </div>
 
-                        <!-- Seconda Chat -->
-                        <div class="box-chat">
-                            <div class="box-profile">
-                                <img src="img/avatar_Sonny.jpg" alt="Sonny Pic Chat">
-                                <div class="box-contact">
-                                    <div class="personal-name">Sonny</div>
-                                    <div class="preview">Ultimo messaggio inviato</div>
-                                </div>
-                            </div>
-
-                            <div class="time-last-message">
-                                <div class="time">12:00</div>
+                        <!-- Sezione Centrale Chat Attiva -->
+                        <div id="main-part">
+                            <div v-for="(msg, i) in contacts[activeContact].messages" class="chat" :class="msg.status === true ? 'status': ''">
+                                <div class="message">{{msg.message}}</div>
                             </div>
                         </div>
 
-                        <!-- Terza Chat -->
-                        <div class="box-chat">
-                            <div class="box-profile">
-                                <img src="img/avatar_Gerald.jpg" alt="Gerald Pic Chat">
-                                <div class="box-contact">
-                                    <div class="personal-name">Gerald</div>
-                                    <div class="preview">Ultimo messaggio inviato</div>
+                        <!-- Sezione Bottom Bar scrittura messaggio -->
+                        <div id="bottom-bar">
+                            <div class="left-section">
+                                <div class="emojis-button">
+                                    <a href="#"><i class="fa-regular fa-face-smile"></i></a>
                                 </div>
                             </div>
 
-                            <div class="time-last-message">
-                                <div class="time">12:00</div>
+                            <div class="middle-section">
+                                <textarea class="type-area" placeholder="Scrivi un messaggio" required></textarea>
+                                <span id="send-btn"><i class="fa-solid fa-paper-plane"></i></span>
                             </div>
-                        </div>
 
-                        <!-- Quarta Chat -->
-                        <div class="box-chat">
-                            <div class="box-profile">
-                                <img src="img/avatar_Selena.jpg" alt="Selena Pic Chat">
-                                <div class="box-contact">
-                                    <div class="personal-name">Selena</div>
-                                    <div class="preview">Ultimo messaggio inviato</div>
+                            <div class="right-section">
+                                <div class="voice-button">
+                                    <a href="#"><i class="fa-solid fa-microphone"></i></a>
                                 </div>
-                            </div>
-
-                            <div class="time-last-message">
-                                <div class="time">12:00</div>
-                            </div>
-                        </div>
-
-                        <!-- Quinta Chat -->
-                        <div class="box-chat">
-                            <div class="box-profile">
-                                <img src="img/avatar_Garrix.jpg" alt="Garrix Pic Chat">
-                                <div class="box-contact">
-                                    <div class="personal-name">Garrix</div>
-                                    <div class="preview">Ultimo messaggio inviato</div>
-                                </div>
-                            </div>
-
-                            <div class="time-last-message">
-                                <div class="time">12:00</div>
-                            </div>
-                        </div>
-
-                        <!-- Sesta Chat -->
-                        <div class="box-chat">
-                            <div class="box-profile">
-                                <img src="img/avatar_Harlow.jpg" alt="Harlow Pic Chat">
-                                <div class="box-contact">
-                                    <div class="personal-name">Harlow</div>
-                                    <div class="preview">Ultimo messaggio inviato</div>
-                                </div>
-                            </div>
-
-                            <div class="time-last-message">
-                                <div class="time">12:00</div>
-                            </div>
-                        </div>
-
-                        <!-- Settima Chat -->
-                        <div class="box-chat">
-                            <div class="box-profile">
-                                <img src="img/avatar_Becky.jpg" alt="Becky Pic Chat">
-                                <div class="box-contact">
-                                    <div class="personal-name">Becky Hill</div>
-                                    <div class="preview">Ultimo messaggio inviato</div>
-                                </div>
-                            </div>
-
-                            <div class="time-last-message">
-                                <div class="time">12:00</div>
-                            </div>
-                        </div>
-
-                        <!-- Ottava Chat -->
-                        <div class="box-chat">
-                            <div class="box-profile">
-                                <img src="img/avatar_TheChainsmokers.jpg" alt="TheChainsmokers Pic Chat">
-                                <div class="box-contact">
-                                    <div class="personal-name">Andrew & Alex</div>
-                                    <div class="preview">Ultimo messaggio inviato</div>
-                                </div>
-                            </div>
-
-                            <div class="time-last-message">
-                                <div class="time">12:00</div>
-                            </div>
-                        </div>
-
-                        <!-- Nona Chat -->
-                        <div class="box-chat">
-                            <div class="box-profile">
-                                <img src="img/avatar_DuaLipa.jpg" alt="DuaLipa Pic Chat">
-                                <div class="box-contact">
-                                    <div class="personal-name">Dua Lipa</div>
-                                    <div class="preview">Ultimo messaggio inviato</div>
-                                </div>
-                            </div>
-
-                            <div class="time-last-message">
-                                <div class="time">12:00</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sezione Main Content (Chat Attiva + Input Messaggio) -->
-                <div id="main-content">
-                    <div id="topbar">
-                        <div class="box-profile">
-                            <img src="img/avatar_Fred.jpg" alt="Active Profile Pic Chat">
-                            <div class="box-contact">
-                                <div class="personal-name">Fred</div>
-                                <div class="access">Ultimo accesso oggi alle 12:00</div>
-                            </div>
-                        </div>
-
-                        <div class="header-icons">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <i class="fa-solid fa-paperclip"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </div>
-                    </div>
-
-                    <!-- Sezione Centrale Chat Attiva -->
-                    <div id="main-part">
-                        <div class="chat outgoing">
-                            <div class="message">Hai portato a spasso il cane?</div>
-                        </div>
-
-                        <div class="chat outgoing">
-                            <div class="message">Ricordati di stendere i panni</div>
-                        </div>
-
-                        <div class="chat incoming">
-                            <div class="message">Tutto fatto!</div>
-                        </div>
-                    </div>
-
-                    <!-- Sezione Bottom Bar scrittura messaggio -->
-                    <div id="bottom-bar">
-                        <div class="left-section">
-                            <div class="emojis-button">
-                                <a href="#"><i class="fa-regular fa-face-smile"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="middle-section">
-                            <textarea class="type-area" placeholder="Scrivi un messaggio" required></textarea>
-                            <span id="send-btn"><i class="fa-solid fa-paper-plane"></i></span>
-                        </div>
-
-                        <div class="right-section">
-                            <div class="voice-button">
-                                <a href="#"><i class="fa-solid fa-microphone"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-
-        </div>
-            
+        </div>       
     </div>
 
     <script type="text/javascript" src="js/script.js"></script>

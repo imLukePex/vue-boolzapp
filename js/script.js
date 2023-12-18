@@ -29,6 +29,17 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            inputMessage: {
+                date: '11/04/2020 15.32',
+                message: "",
+                status: 'sent'
+            },
+
+            outputMessage: {
+                date: '04/08/2020 15.36',
+                message: "Ok!",
+                status: 'received'
+            },
 
             activeContact: 0,
 
@@ -224,5 +235,18 @@ createApp({
         activeChat(i) {
             this.activeContact = i;
         },
+
+        addMessage() {
+            const activeContact = this.contacts[this.activeContact];
+
+            activeContact.messages.push({...this.inputMessage});
+            this.inputMessage.message = "";
+
+            setTimeout(() => {
+                activeContact.messages.push({...this.outputMessage});
+            }, 1000);
+        },
+
+        
     }
 }).mount("#app")

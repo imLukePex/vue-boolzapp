@@ -111,7 +111,7 @@
                             <div v-for="(msg, i) in contacts[activeContact].messages" class="chat" :class="msg.status === 'sent' ? 'sent': 'received'">
                                 <div class="message">{{msg.message}}
                                     <div class="checks-box">
-                                        <div class="check first"><i class="fa-solid fa-check"></i></div>
+                                        <div class="check first"> <span class="message-time">15.00</span> <i class="fa-solid fa-check"></i></div>
                                         <div class="check second"><i class="fa-solid fa-check"></i></div>
                                     </div>
                                 </div>
@@ -127,8 +127,8 @@
                             </div>
 
                             <div class="middle-section">
-                                <textarea class="type-area" placeholder="Scrivi un messaggio" required></textarea>
-                                <span id="send-btn"><i class="fa-solid fa-paper-plane"></i></span>
+                                <textarea class="type-area" placeholder="Scrivi un messaggio" v-model="inputMessage.message" @keyup.enter="addMessage" required></textarea>
+                                <span @click="addMessage" id="send-btn"><i class="fa-solid fa-paper-plane"></i></span>
                             </div>
 
                             <div class="right-section">

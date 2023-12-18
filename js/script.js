@@ -41,6 +41,8 @@ createApp({
                 status: 'received'
             },
 
+            search: '',
+
             activeContact: 0,
 
             contacts: [

@@ -65,14 +65,14 @@
                             <button class="search-button">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
-                            <input class="search-bar" type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input class="search-bar" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
                         </div>
 
                         <!-- Sezione Chats -->
                         <div class="list-chat-box">
 
                             <!-- Ciclo For Chats -->
-                            <div v-for="(contact, i) in contacts" class="box-chat" :class="activeContact === i ? 'active' : ''" @click="activeChat(i)">
+                            <div v-for="(contact, i) in contacts" class="box-chat" :class="activeContact === i ? 'active' : ''" @click="activeChat(i)" v-show="contacts[i].name.toLowerCase().includes(search)">
                                 <div class="box-profile">
                                     <img :src="contact.avatar" alt="Fred Pic Chat">
                                     <div class="box-contact">
@@ -92,9 +92,9 @@
                     <div id="main-content">
                         <div id="topbar">
                             <div class="box-profile">
-                                <img src="img/avatar_Fred.jpg" alt="Active Profile Pic Chat">
+                                <img :src="contacts[activeContact].avatar" alt="Active Profile Pic Chat">
                                 <div class="box-contact">
-                                    <div class="personal-name">Fred</div>
+                                    <div class="personal-name">{{contacts[activeContact].name}}</div>
                                     <div class="access">Ultimo accesso oggi alle 12:00</div>
                                 </div>
                             </div>

@@ -333,10 +333,10 @@
     height: 55px;
     line-height: 55px;
     color: #494949;
-    margin-left: -15px;
     padding-right: 10px;
-    border-radius: 8px;
+    margin-left: -15px;
     cursor: pointer;
+    border-radius: 8px;
     visibility: hidden;
 }
 
@@ -344,10 +344,13 @@
     font-size: 20px;
 }
 
-
 .middle-section textarea:valid ~ span {
     visibility: visible;
 }
+
+/* .middle-section textarea:valid ~ .right-section i {
+    display: none;
+} */
 
 .right-section {
     width: 10%;

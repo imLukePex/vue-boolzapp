@@ -165,7 +165,7 @@ createApp({
                         },
                         {
                             date: '10/01/2020 15:51',
-                            message: 'Nessuna nuova, buona nuova',
+                            message: 'Okay va bene, buona serata!',
                             status: 'sent'
                         }
                     ],

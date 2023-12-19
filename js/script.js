@@ -43,6 +43,8 @@ createApp({
 
             search: '',
 
+            settingActive: false,
+
             activeContact: 0,
 
             contacts: [
@@ -130,7 +132,7 @@ createApp({
                     ],
                 },
                 {
-                    name: 'Garrix',
+                    name: 'Martijn',
                     avatar: './img/avatar_Garrix.jpg',
                     visible: true,
                     messages: [
@@ -249,6 +251,18 @@ createApp({
                     activeContact.messages.push({...this.outputMessage});
                 }, 1000);
             }
+        },
+
+        // Mostra o fai scomparire le impostazioni del messaggio relativo (info e elimina messaggio)
+        toggleMessageSettings(i) {
+            this.settingActive = !this.settingActive;
+            this.activeMessage = i;
+        },
+      
+        // Cancella il messaggio corrispondente
+        deleteMessage(activeContact, i) {
+        this.contacts[activeContact].messages.splice(i, 1);
+        this.settingActive = !this.settingActive; // Dopo aver cancellato il messaggio si chiude il div "settings"
         },
 
         

@@ -249,10 +249,48 @@
     background: #d5f9ba;
     border-radius: 10px 10px 0 10px;
     position: relative;
+    cursor: pointer;
+}
+
+#main-part .chat .message:hover {
+    
+}
+
+.fa-chevron-down {
+    cursor: pointer;
+}
+
+.delete-message {
+    position: absolute;
+    right: 5px;
+    top: 2.5rem;
+    z-index: 200;
+}
+
+.delete-settings {
+    background-color: #303030;
+    color: #ffff;
+    width: 170px;
+    font-size: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 4px;
+}
+
+.delete-settings > li {
+    padding: 10px;
+}
+
+.delete-settings > li:hover {
+    background-color: #494949;
+    cursor: pointer;
 }
 
 #main-part .sent {
     justify-content: flex-end;
+    margin: 20px 0;
+}
+
+#main-part .received {
     margin: 20px 0;
 }
 
@@ -302,7 +340,7 @@
     align-items: center;
 }
 
-.emojis-button i, .voice-button i {
+.emojis-button i, .voice-button i, .send-icon i {
     font-size: 26px;
     color: #494949;
 }
@@ -326,31 +364,6 @@
     resize: none;
     overflow: hidden;
 }
-
-.middle-section span {
-    align-self: center;
-    background: #ffff;
-    height: 55px;
-    line-height: 55px;
-    color: #494949;
-    padding-right: 10px;
-    margin-left: -15px;
-    cursor: pointer;
-    border-radius: 8px;
-    visibility: hidden;
-}
-
-.middle-section i {
-    font-size: 20px;
-}
-
-.middle-section textarea:valid ~ span {
-    visibility: visible;
-}
-
-/* .middle-section textarea:valid ~ .right-section i {
-    display: none;
-} */
 
 .right-section {
     width: 10%;

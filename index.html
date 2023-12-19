@@ -109,7 +109,14 @@
                         <!-- Sezione Centrale Chat Attiva -->
                         <div id="main-part">
                             <div v-for="(msg, i) in contacts[activeContact].messages" class="chat" :class="msg.status === 'sent' ? 'sent': 'received'">
-                                <div class="message">{{msg.message}}
+                                <div class="message">{{msg.message}} <i class="fa-solid fa-chevron-down" @click="toggleMessageSettings(i)"></i>
+                                    
+                                    <div class="delete-message" v-if="settingActive && i === activeMessage">
+                                        <ul class="delete-settings">
+                                            <li class="info">Info Messaggio</li>
+                                            <li class="delete" @click="deleteMessage(activeContact, i)">Elimina Messaggio</li>
+                                        </ul>
+                                    </div>
                                     <div class="checks-box">
                                         <div class="check first"> <span class="message-time">15.00</span> <i class="fa-solid fa-check"></i></div>
                                         <div class="check second"><i class="fa-solid fa-check"></i></div>
@@ -128,11 +135,13 @@
 
                             <div class="middle-section">
                                 <textarea class="type-area" placeholder="Scrivi un messaggio" v-model="inputMessage.message" @keyup.enter="addMessage" required></textarea>
-                                <span @click="addMessage" id="send-btn"><i class="fa-solid fa-paper-plane"></i></span>
                             </div>
 
                             <div class="right-section">
-                                <div class="voice-button">
+                                <div class="send-icon" v-if="inputMessage.message.length >= 1">
+                                    <a href="#"><i class="fa-solid fa-paper-plane" @click="addMessage"></i></a>
+                                </div>
+                                <div class="voice-button" v-else>
                                     <a href="#"><i class="fa-solid fa-microphone"></i></a>
                                 </div>
                             </div>
